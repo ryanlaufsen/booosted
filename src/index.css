@@ -1,0 +1,155 @@
+:root {
+  --clr-neon: hsl(317, 100%, 54%);
+  --clr-bg: hsl(323, 21%, 16%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+
+  position: relative;
+
+  background-image: url('./resources/background.jpeg');
+  background-blend-mode: multiply;
+  background-size: 20rem 20rem;
+  background-repeat: repeat;
+}
+
+body::after {
+  z-index: 100;
+
+  background: black;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title > h1 {
+  font: bold 120px 'Cabin Sketch', cursive;
+  color: var(--clr-neon);
+  text-shadow: 0 0 0.05em var(--clr-neon);
+
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.title > h2 {
+  font: bold 52px 'Cabin Sketch', cursive;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+hr {
+  box-sizing: border-box;
+  margin: 20px;
+}
+
+body > p {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+.neon-button {
+  font: bold 52px 'Cabin Sketch', cursive;
+  text-shadow: 0 0 0.05em hsl(0, 0%, 100%, 0.5), var(--clr-neon);
+  color: var(--clr-neon);
+  text-decoration: none;
+
+  background: black;
+  display: inline-block;
+  cursor: pointer;
+  
+  border: var(--clr-neon) 0.2em solid;
+  border-radius: 0.1em;
+  box-shadow: inset 0 0 0.5em var(--clr-neon), 0 0 0.5em var(--clr-neon);
+  padding: 0.25em 1em;
+  margin: 20px;
+
+  position: relative;
+
+  transition: background-color 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.neon-button::before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  background: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.neon-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.neon-button:hover {
+  background: var(--clr-neon);
+  color: var(--clr-bg);
+  text-shadow: 0 0 0.1em black;
+}
+
+.neon-button:hover::before,
+.neon-button:hover::after {
+  opacity: 1;
+}
+
+/* #messages {
+  font: 60px 'Cabin Sketch', cursive;
+  text-shadow: 0 0 0.2em var(--clr-neon);
+  margin-top: 150px;
+  opacity: 0;
+
+  transition: opacity 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+} */
+
+/* .fancy-text {
+  font: 30px 'Cabin Sketch', cursive;
+  margin-top: 80px;
+  text-align: left;
+} */
+
+.footer {
+  font: 30px 'Cabin Sketch', cursive;
+
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%)
+}
+
+.footer > p {
+  font: 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
