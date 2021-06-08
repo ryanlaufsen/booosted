@@ -10,19 +10,20 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 1000,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      devTools: false
     }
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // Remove menu bar
+  mainWindow.setMenuBarVisibility(false);
 };
 
 // This method will be called when Electron has finished
