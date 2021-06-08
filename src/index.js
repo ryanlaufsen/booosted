@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog, globalShortcut } = require('electron');
 const path = require('path');
+require('@electron/remote/main').initialize();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -10,13 +11,18 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 1000,
+    height: 800,
+    minWidth: 800,
+    minHeight: 800,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
-      devTools: false
-    }
+      // devTools: false
+    },
+    icon: __dirname + '/resources/fire.ico', // only shows on Windows and Linux, but icon should be included in build
+    vibrancy: 'titlebar', // Windows Aero-like effect on Mac OS X
+    titleBarStyle: 'customButtonsOnHover' // protractable traffic light buttons on Mac OS X
   });
 
   // and load the index.html of the app.
@@ -48,5 +54,17 @@ app.on('activate', () => {
   }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+// Prevents opening the dev console with Control+Shift+I
+// app.on('ready', () => {
+//   globalShortcut.register('Control+Shift+I', () => {
+//     options = {
+//       message: 'Did you press CTRL-SHIFT-I by accident? Sure you did. Gotcha >:(',
+//       type: 'warning',
+//       buttons: ['Aw, man!'],
+//       title: '!! HACKERMAN ALERT !!',
+//       detail: 'Your evil plots have been foiled!',
+//     }
+//     dialog.showMessageBox(options);
+//     return false;
+//   });
+// });

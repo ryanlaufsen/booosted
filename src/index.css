@@ -7,9 +7,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
   max-width: 38rem;
+  min-height: 50rem;
   padding: 2rem;
 
+  overflow-y: hidden;
+
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
 
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -20,6 +30,8 @@ body {
   background-blend-mode: multiply;
   background-size: 20rem 20rem;
   background-repeat: repeat;
+
+  user-select: none;
 }
 
 body::after {
@@ -67,12 +79,14 @@ body > p {
 }
 
 .neon-button {
-  font: bold 52px 'Cabin Sketch', cursive;
+  width: 80%;
+
+  font: bold 60px 'Cabin Sketch', cursive;
   text-shadow: 0 0 0.05em hsl(0, 0%, 100%, 0.5), var(--clr-neon);
   color: var(--clr-neon);
   text-decoration: none;
 
-  background: black;
+  background: var(--clr-neon);
   display: inline-block;
   cursor: pointer;
   
@@ -83,8 +97,9 @@ body > p {
   margin: 20px;
 
   position: relative;
+  overflow: hidden;
 
-  transition: background-color 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition: 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .neon-button::before {
@@ -115,7 +130,6 @@ body > p {
 }
 
 .neon-button:hover {
-  background: var(--clr-neon);
   color: var(--clr-bg);
   text-shadow: 0 0 0.1em black;
 }
@@ -123,6 +137,61 @@ body > p {
 .neon-button:hover::before,
 .neon-button:hover::after {
   opacity: 1;
+}
+
+#boostText {
+  z-index: 20;
+  position: relative;
+
+  transition: opacity 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+#boostButton > .liquid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-neon);
+  transition: 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+  z-index: 10;
+}
+
+#boostButton:hover .liquid {
+  top: -7rem;
+}
+
+#boostButton > .liquid:before,
+#boostButton > .liquid:after {
+  content: '';
+  position: absolute;
+  width: 100rem;
+  height: 100rem;
+  top: -190%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+#boostButton > .liquid:before {
+  border-radius: 45%;
+  background-color: var(--clr-bg);
+  animation: button-liquid 5s linear infinite;
+}
+
+#boostButton > .liquid:after {
+  border-radius: 40%;
+  background-color: black;
+  animation: button-liquid 6s linear infinite;
+}
+
+@keyframes button-liquid {
+  0% {
+    transform: translate(-50%, -85%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -85%) rotate(360deg);
+  }
 }
 
 /* #messages {

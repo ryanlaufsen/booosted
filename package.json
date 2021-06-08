@@ -15,7 +15,9 @@
   "build": {
     "appId": "rank1na.booosted",
     "win": {
-      "target": ["nsis"],
+      "target": [
+        "nsis"
+      ],
       "icon": "src/resources/fire.ico"
     },
     "nsis": {
@@ -59,6 +61,7 @@
     }
   },
   "dependencies": {
+    "@electron/remote": "^1.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "league-connect": "^5.2.0"
   },
