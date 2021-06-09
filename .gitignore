@@ -90,3 +90,6 @@ out/
 
 # electron-builder
 dist
+
+# VSCode debugging
+.vscode

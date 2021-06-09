@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@electron/remote": "^1.1.0",
+    "electron-fetch": "^1.7.3",
     "electron-squirrel-startup": "^1.0.0",
     "league-connect": "^5.2.0"
   },
