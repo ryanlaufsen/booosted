@@ -10,8 +10,7 @@ function sleep(ms) {
 // Buttons
 const boostButton = document.getElementById('boostButton');
 boostButton.onclick = e => {
-    // aramBoost();
-    handleBoost();
+    aramBoost();
 }
 
 // Display events
