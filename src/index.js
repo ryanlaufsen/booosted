@@ -33,7 +33,7 @@ const createWindow = () => {
       enableRemoteModule: true,
       // devTools: false
     },
-    icon: __dirname + '/resources/fire.ico', // only shows on Windows and Linux, but icon should be included in build
+    icon: __dirname + '/resources/icon.ico', // only shows on Windows and Linux, but icon should be included in build
     vibrancy: 'titlebar', // Windows Aero-like effect on Mac OS X
     titleBarStyle: 'customButtonsOnHover' // protractable traffic light buttons on Mac OS X
   });
@@ -59,7 +59,7 @@ app.on('ready', async () => {
       buttons: ['Aw, man!', 'It\'s okay. I still love you.'],
       defaultId: 1,
       detail: 'The BOOOSTED ARAM Skin Boost service is not available at the moment. :(',
-      icon: __dirname + '/resources/fire.ico'
+      icon: __dirname + '/resources/icon.ico'
     });
   }
 });

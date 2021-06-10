@@ -18,11 +18,11 @@
       "target": [
         "nsis"
       ],
-      "icon": "src/resources/fire.ico"
+      "icon": "src/resources/icon.ico"
     },
     "nsis": {
-      "installerIcon": "src/resources/fire.ico",
-      "uninstallerIcon": "src/resources/fire.ico",
+      "installerIcon": "src/resources/icon.ico",
+      "uninstallerIcon": "src/resources/icon.ico",
       "uninstallDisplayName": "BOOOSTED",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
