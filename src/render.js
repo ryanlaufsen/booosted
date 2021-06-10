@@ -1,6 +1,5 @@
 // Required modules
-const { remote } = require('electron');
-const { dialog } = remote;
+const { dialog } = require('@electron/remote');
 const leagueConnect = require('league-connect');
 
 // Custom utility functions
@@ -42,9 +41,22 @@ async function handleBoost() {
     // document.getElementById('messages').style.fontSize = '80px';
     // document.getElementById('messages').style.color = 'var(--clr-neon)';
     // document.getElementById('messages').innerHTML = 'BBBOOOSTED';
-    boostButton.innerText = 'BOOOSTED';
+
+    document.getElementById('boostText').style.opacity = 0;
+    await sleep(200);
+    // document.getElementById('boostText').style.fontSize = '9.4vw';
+    document.getElementById('boostText').innerText = 'BOOOSTED';
+    await sleep(300);
+    document.getElementById('boostText').style.opacity = 1;
+
     await sleep(5000);
-    boostButton.innerText = 'BOOOST';
+
+    document.getElementById('boostText').style.opacity = 0;
+    await sleep(200);
+    document.getElementById('boostText').innerText = 'BOOOST';
+    // document.getElementById('boostText').style.fontSize = '12.3vw';
+    await sleep(300);
+    document.getElementById('boostText').style.opacity = 1;
 }
 
 // LCU API

@@ -1,7 +1,7 @@
 {
   "name": "boosted",
   "productName": "BOOOSTED",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "LOL ARAM Skin Booster",
   "main": "src/index.js",
   "scripts": {
@@ -15,12 +15,14 @@
   "build": {
     "appId": "rank1na.booosted",
     "win": {
-      "target": ["nsis"],
-      "icon": "src/resources/fire.ico"
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/resources/icon.ico"
     },
     "nsis": {
-      "installerIcon": "src/resources/fire.ico",
-      "uninstallerIcon": "src/resources/fire.ico",
+      "installerIcon": "src/resources/icon.ico",
+      "uninstallerIcon": "src/resources/icon.ico",
       "uninstallDisplayName": "BOOOSTED",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
@@ -59,6 +61,8 @@
     }
   },
   "dependencies": {
+    "@electron/remote": "^1.1.0",
+    "electron-fetch": "^1.7.3",
     "electron-squirrel-startup": "^1.0.0",
     "league-connect": "^5.2.0"
   },
